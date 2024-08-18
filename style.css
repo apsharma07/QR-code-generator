@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://img.freepik.com/free-vector/realistic-neon-lights-background_23-2148907367.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box{
+    background: url("https://t4.ftcdn.net/jpg/05/71/83/47/360_F_571834789_ujYbUnH190iUokdDhZq7GXeTBRgqYVwa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+    width: 400px;
+    border-radius: 9px;
+    border:1px solid black;
+}
+
+.qr-header h1{
+    font-size: 26px;
+    text-align: center;
+    color: white;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.qr-header input{
+    width: 100%;
+    margin-block: 12px;
+}
+
+.qr-header input, select{
+    padding: 10px;
+    border-radius: 18px;
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid black;
+    color: #f9fbfb;
+}
+select option{
+    color: black;
+}
+.qr-header label{
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.qr-header div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.qr-footer{
+    display: flex;
+    justify-content: center;
+}
+.qr-footer a{
+    background: transparent;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 14px 36px;
+    margin-inline: 2px;
+    color: white;
+    font-weight: 600;
+}
+
+.qr-body{
+    display: grid;
+    place-items: center;
+    padding:20px;
+}
+
+.qr-body img{
+    max-width: 100%;
+    max-height: 100%;
+    margin-block: 10px;
+    padding: 2px;
+}
+
+@media screen and (max-width:520px){
+    .box{
+        width: 80%;
+    }
+    .qr-footer a{
+        padding: 12px;
+        font-size: 16px;
+    }
+}
