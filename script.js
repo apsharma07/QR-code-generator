@@ -5,43 +5,64 @@ const downloadBtn = document.getElementById('downloadBtn');
 const qrContainer = document.querySelector('.qr-body');
 
 let size = sizes.value;
-generateBtn.addEventListener('click',(e)=>{
+
+downloadBtn.disabled = true;
+
+generateBtn.addEventListener('click', (e) => {
     e.preventDefault();
     isEmptyInput();
 });
 
-sizes.addEventListener('change',(e)=>{
+sizes.addEventListener('change', (e) => {
     size = e.target.value;
     isEmptyInput();
 });
 
-downloadBtn.addEventListener('click', ()=>{
-    let img = document.querySelector('.qr-body img');
-
-    if(img !== null){
-        let imgAtrr = img.getAttribute('src');
-        downloadBtn.setAttribute("href", imgAtrr);
+qrText.addEventListener('input', () => {
+    if (qrText.value.trim().length === 0) {
+        downloadBtn.disabled = true; 
+        qrContainer.innerHTML = ""; 
     }
-    else{
-        alert("QR not generated");
-    }
-        //downloadBtn.setAttribute("href", `${document.querySelector('canvas').toDataURL()}`);
-    
 });
 
-function isEmptyInput(){
-    if(qrText.value.length > 0)
+downloadBtn.addEventListener('click', (e) => {
+    const img = document.querySelector('.qr-body img');
+    if (!img) {
+        e.preventDefault(); 
+        alert("No QR code generated to download");
+    }
+});
+
+function isEmptyInput() {
+    if (qrText.value.trim().length > 0) {
         generateQRCode();
-    else
+    } else {
         alert("Enter the text or URL to generate your QR code");
+    }
 }
-function generateQRCode(){
-    qrContainer.innerHTML = "";
+
+function generateQRCode() {
+    qrContainer.innerHTML = ""; 
     new QRCode(qrContainer, {
-        text:qrText.value,
-        height:size,
-        width:size,
-        colorLight:"#fff",
-        colorDark:"#000",
-    });
+        text: qrText.value,
+        height: parseInt(size),
+        width: parseInt(size),
+        colorLight: "#fff",
+        colorDark: "#000",
+});
+
+setTimeout(() => {
+    const canvas = document.querySelector('.qr-body canvas');
+    if (canvas) {
+        canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            downloadBtn.disabled = false;
+            downloadBtn.setAttribute("href", url);
+            downloadBtn.setAttribute("download", "qrcode.png");
+        }, 'image/png');
+    } else {
+        downloadBtn.disabled = true;
+    }
+}, 100);
 }
+
