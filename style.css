@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 body{
@@ -11,49 +11,55 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("https://img.freepik.com/free-vector/realistic-neon-lights-background_23-2148907367.jpg");
-    background-repeat: no-repeat;
+    background-image: linear-gradient(to bottom, #000000, #1a000d, #24001d, #230031, #0a004b);background-repeat: no-repeat;
     background-size: cover;
 }
-
 .box{
-    background: url("https://t4.ftcdn.net/jpg/05/71/83/47/360_F_571834789_ujYbUnH190iUokdDhZq7GXeTBRgqYVwa.jpg");
+    background-image: linear-gradient(to bottom, #000000, #1a000d, #24001d, #230031, #0a004b);background-repeat: no-repeat;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     background-repeat: no-repeat;
     background-size: cover;
     padding: 30px;
     width: 400px;
-    border-radius: 9px;
-    border:1px solid black;
+    border-radius: 25px;
+    border: 2px solid rgb(0, 0, 1);
 }
-
 .qr-header h1{
     font-size: 26px;
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
     margin-bottom: 24px;
     text-transform: uppercase;
 }
-
 .qr-header input{
+    padding: 10px;
     width: 100%;
-    margin-block: 12px;
+    margin: 12px;
+    font-size: 18px;
+    outline: none;
+    background: transparent;
+    border:none;
+    border-bottom: 2px solid #ffffff;
+    color: #fafafa;
 }
 
-.qr-header input, select{
+.qr-header select{
     padding: 10px;
     border-radius: 18px;
     font-size: 18px;
     outline: none;
     background: transparent;
-    border-bottom: 2px solid black;
-    color: #f9fbfb;
+    border: none;
+    color: #ffffff;
 }
 select option{
-    color: black;
+    background-color: black;
+    border: none;
+    color: rgb(255, 255, 255);
 }
 .qr-header label{
     padding: 10px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 20px;
 }
 
@@ -72,7 +78,7 @@ select option{
     font-size: 20px;
     padding: 14px 36px;
     margin-inline: 2px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: 600;
 }
 
