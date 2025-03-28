@@ -5,8 +5,8 @@ const downloadBtn = document.getElementById('downloadBtn');
 const qrContainer = document.querySelector('.qr-body');
 
 let size = sizes.value;
-let lastGeneratedText = '';  // To track changes in text
-let lastGeneratedSize = size;  // To track changes in size
+let lastGeneratedText = '';  
+let lastGeneratedSize = size;
 
 downloadBtn.disabled = true;
 
@@ -19,8 +19,6 @@ sizes.addEventListener('change', (e) => {
     size = e.target.value;
     isEmptyInput();
 });
-
-// Handle text input changes
 qrText.addEventListener('input', () => {
     if (qrText.value.trim().length === 0) {
         qrContainer.innerHTML = "";  // Clear the QR code if input is empty
@@ -78,3 +76,9 @@ function generateQRCode() {
         }
     }, 100);
 }
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.querySelector(".preloader").style.display = "none";
+        document.body.style.overflow = "auto";  // Enable scrolling after load
+    }, 1500);
+});
